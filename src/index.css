@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-highlight: rgba(255, 255, 255, 0.8);
+  --card-bg: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+}
+
+.dark {
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  --card-bg: #0f172a;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+}
+
+@layer base {
+  body {
+    @apply antialiased bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-primary-500 selection:text-white transition-colors duration-300;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 1px var(--glass-highlight);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600 dark:from-white dark:via-slate-200 dark:to-slate-400;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-400 to-primary-600;
+  }
+
+  .premium-card {
+    @apply glass rounded-3xl p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-primary-500/10 hover:-translate-y-2 relative overflow-hidden;
+  }
+
+  .premium-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent opacity-0 transition-opacity duration-500 pointer-events-none;
+  }
+
+  .premium-card:hover::before {
+    @apply opacity-100;
+  }
+
+  .glow {
+    @apply absolute rounded-full blur-[100px] opacity-20 pointer-events-none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full border-4 border-transparent bg-clip-content hover:bg-primary-500 transition-colors;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}

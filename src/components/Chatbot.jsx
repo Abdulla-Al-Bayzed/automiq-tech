@@ -57,7 +57,7 @@ const Chatbot = () => {
       timestamp: new Date()
     };
     setMessages(prev => [...prev, userMsg]);
-    
+
     // Process response
     setIsTyping(true);
     setTimeout(() => {
@@ -163,7 +163,7 @@ const Chatbot = () => {
     } else if (step === 'message') {
       const updatedForm = { ...formState, message: text };
       setFormState(prev => ({ ...prev, step: 'submitting', message: text }));
-      
+
       setMessages(prev => [
         ...prev,
         {
@@ -222,7 +222,7 @@ const Chatbot = () => {
 
   const processBotResponse = (input) => {
     setIsTyping(false);
-    
+
     // Exact quick reply values or keyword matching
     if (input === 'services' || input.includes('service') || input.includes('offer') || input.includes('what do you do')) {
       setMessages(prev => [
@@ -238,7 +238,7 @@ const Chatbot = () => {
         ...prev,
         {
           sender: 'bot',
-          text: 'Automiq Tech is led by:\n\n👨‍💼 **Abdulla Al Bayzed** (Co-Founder & CEO)\n👨‍💻 **Asib Ahmed** (Co-Founder & CTO)\n👨‍🎨 **Hasibul Kabir Emon** (Lead Architect)\n\nThey lead a talented group of software engineers and designers dedicated to client success.',
+          text: 'Automiq Tech is led by:\n\n👨‍💼 **Abdulla Al Bayzed** (Co-Founder & CEO)\n👨‍💻 **Asib Ahmed** (Software Engineer)\n👨‍🎨 **Hasibul Kabir Emon** (Software Engineer)\n\nThey lead a talented group of software engineers and designers dedicated to client success.',
           timestamp: new Date()
         }
       ]);
@@ -385,18 +385,16 @@ const Chatbot = () => {
                   className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div className={`flex items-start space-x-2 max-w-[80%] ${msg.sender === 'user' ? 'flex-row-reverse space-x-reverse' : 'flex-row'}`}>
-                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-md ${
-                      msg.sender === 'user'
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-md ${msg.sender === 'user'
                         ? 'bg-primary-500 text-white'
                         : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200'
-                    }`}>
+                      }`}>
                       {msg.sender === 'user' ? <User size={16} /> : <Bot size={16} />}
                     </div>
-                    <div className={`rounded-2xl px-4 py-3 text-sm shadow-sm whitespace-pre-line leading-relaxed ${
-                      msg.sender === 'user'
+                    <div className={`rounded-2xl px-4 py-3 text-sm shadow-sm whitespace-pre-line leading-relaxed ${msg.sender === 'user'
                         ? 'bg-primary-500 text-white'
                         : 'bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-slate-200/50 dark:border-slate-800/50'
-                    }`}>
+                      }`}>
                       {msg.text}
                     </div>
                   </div>
@@ -417,7 +415,7 @@ const Chatbot = () => {
                   </div>
                 </div>
               )}
-              
+
               <div ref={messagesEndRef} />
             </div>
 

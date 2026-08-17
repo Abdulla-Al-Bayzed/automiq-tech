@@ -12,8 +12,8 @@ const About = () => {
 
   const team = [
     { name: 'Abdulla Al Bayzed', role: 'Co-Founder & CEO', image: '/abdulla-al-bayzed.jpg' },
-    { name: 'Asib Ahmed', role: 'Co-Founder & CTO', image: '/asib-ahmed.png' },
-    { name: 'Hasibul Kabir Emon', role: 'Lead Architect', image: '/hasibul-kabir-emon.png' },
+    { name: 'Asib Ahmed', role: 'Software Engineer', image: '/asib-ahmed.png' },
+    { name: 'Hasibul Kabir Emon', role: 'Software Engineer', image: '/hasibul-kabir-emon.png' },
   ];
 
   return (
@@ -30,20 +30,20 @@ const About = () => {
 
       {/* Engineering Workspace Showcase */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="relative rounded-[3rem] overflow-hidden border border-slate-800 shadow-2xl bg-slate-950 group"
         >
           <div className="relative h-[450px] lg:h-[550px] overflow-hidden">
-            <img 
-              src="/images/about-workspace.png" 
-              alt="Automiq Tech Innovation Lab Workspace" 
+            <img
+              src="/images/about-workspace.png"
+              alt="Automiq Tech Innovation Lab Workspace"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
-            
+
             <div className="absolute inset-0 p-8 md:p-16 flex flex-col justify-end">
               <div className="max-w-3xl">
                 <span className="inline-flex items-center space-x-2 bg-primary-500/20 border border-primary-500/30 text-primary-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 backdrop-blur-md">
